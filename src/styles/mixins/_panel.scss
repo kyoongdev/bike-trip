@@ -1,0 +1,16 @@
+@use 'src/styles/constants' as c;
+
+@mixin getDefaultPanelStyle($zIndex: 1) {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: c.$S_MONITORING_HEADER_HEIGHT + c.$S_PANEL_GAP;
+  left: c.$S_PANEL_GAP;
+  z-index: $zIndex;
+  width: c.$S_LEFT_PANEL_WIDTH;
+  height: calc(100% - c.$S_MONITORING_HEADER_HEIGHT - (c.$S_PANEL_GAP * 2));
+  padding: 4px 0px;
+  background-color: c.$C_SURFACE_PRIMARY;
+  border: 1px solid c.$C_BLACK;
+  border-radius: 4px;
+}

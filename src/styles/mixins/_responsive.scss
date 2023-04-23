@@ -1,0 +1,41 @@
+$BREAK_POINT: (
+  'TABLET': 1280px,
+);
+
+@function getMinBreakpoint($media) {
+  @return map-get($BREAK_POINT, $media);
+}
+
+@function getMaxBreakpoint($media) {
+  @return getMinBreakpoint($media) - 1px;
+}
+
+@mixin between($min, $max) {
+  @media only screen and (min-width: getMinBreakpoint($min)) and (max-width: getMaxBreakpoint($max)) {
+    @content;
+  }
+}
+
+@mixin before($media) {
+  @media only screen and (max-width: getMaxBreakpoint($media)) {
+    @content;
+  }
+}
+
+@mixin after($media) {
+  @media only screen and (min-width: getMinBreakpoint($media)) {
+    @content;
+  }
+}
+
+@mixin tabletOnly() {
+  @media only screen and (max-width: getMaxBreakpoint('TABLET')) {
+    @content;
+  }
+}
+
+@mixin desktopOnly() {
+  @media only screen and (min-width: getMinBreakpoint('TABLET')) {
+    @content;
+  }
+}

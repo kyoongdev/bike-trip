@@ -1,0 +1,19 @@
+$S_GNB_WIDTH: 264px;
+$S_LOGO_WRAPPER_HEIGHT: 88px;
+$S_MONITORING_HEADER_HEIGHT: 40px;
+$S_MONITORING_HEADER_HEIGHT_NUMBER: 40;
+$S_RIGHT_PANEL_WIDTH: 360px;
+$S_LEFT_PANEL_WIDTH: 408px;
+$S_PANEL_GAP: 16px;
+$S_PANEL_GAP_NUMBER: 16;
+
+:export {
+  gnbWidth: $S_GNB_WIDTH;
+  logoWrapperHeight: $S_LOGO_WRAPPER_HEIGHT;
+  monitoringHeaderHeight: $S_MONITORING_HEADER_HEIGHT;
+  monitoringHeaderHeightNumber: $S_MONITORING_HEADER_HEIGHT_NUMBER;
+  rightPanelWidth: $S_RIGHT_PANEL_WIDTH;
+  leftPanelWidth: $S_LEFT_PANEL_WIDTH;
+  pannelGap: $S_PANEL_GAP;
+  pannelGapNumber: $S_PANEL_GAP_NUMBER;
+}
