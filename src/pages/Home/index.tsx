@@ -1,10 +1,16 @@
 import React from 'react';
 
 import { Button } from 'components/Common';
+import { useNavigate } from 'react-router-dom';
 
 import styles from './home.module.scss';
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const onClick = () => {
+    navigate('/result');
+  };
   return (
     <section className={styles.wrapper}>
       <div className={styles.title}>
@@ -19,8 +25,9 @@ const Home: React.FC = () => {
           <span className={styles.highlight}>디</span>펜스
         </p>
       </div>
-      <Button>시작하기</Button>
+      <Button onClick={onClick}>시작하기</Button>
     </section>
   );
 };
+
 export default Home;

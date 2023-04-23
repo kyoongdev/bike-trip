@@ -14,9 +14,10 @@ const Button: React.FC<Props> = ({
   className,
   children,
   color = 'primary',
+  ...props
 }) => {
   return (
-    <button className={cx(styles.button, styles[color], className)}>
+    <button className={cx(styles.button, styles[color], className)} {...props}>
       {children}
     </button>
   );
