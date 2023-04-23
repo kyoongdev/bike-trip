@@ -1,91 +1,29 @@
 @use 'src/styles/constants' as c;
 
-$FONT_WEIGHT_MAP: (
-  'thin': 100,
-  'light': 300,
-  'regular': 400,
-  'medium': 500,
-  'bold': 700,
-  'black': 900,
-);
-
-@function _getFontWeightValue($key) {
-  @return map-get($FONT_WEIGHT_MAP, $key);
+@mixin fontH1 {
+  font-size: 36px;
 }
 
-@mixin fontH1($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
+@mixin fontH2 {
   font-size: 32px;
-  line-height: 1.5;
-  font-weight: _getFontWeightValue($fw);
 }
 
-@mixin fontH2($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  font-size: 24px;
-  line-height: 1.667;
-  font-weight: _getFontWeightValue($fw);
+@mixin fontH3 {
+  font-size: 28px;
 }
 
-@mixin fontH3($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
+@mixin fontB1 {
   font-size: 20px;
-  line-height: 1.6;
-  font-weight: _getFontWeightValue($fw);
 }
 
-@mixin fontH4($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
+@mixin fontB2 {
+  font-size: 18px;
+}
+
+@mixin fontB3 {
   font-size: 16px;
-  line-height: 1.5;
-  font-weight: _getFontWeightValue($fw);
 }
 
-@mixin fontB1LH1($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  font-size: 16px;
-  line-height: 1.75;
-  font-weight: _getFontWeightValue($fw);
-}
-
-@mixin fontB1LH2($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  line-height: 1.75;
-  font-size: 16px;
-  font-weight: _getFontWeightValue($fw);
-}
-
-@mixin fontB2LH2($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
+@mixin fontB4 {
   font-size: 14px;
-  line-height: 1.715;
-  font-weight: _getFontWeightValue($fw);
-}
-
-@mixin fontC1LH1($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  font-size: 16px;
-  line-height: 1.25;
-  font-weight: _getFontWeightValue($fw);
-}
-
-@mixin fontC2LH1($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  font-size: 14px;
-  line-height: 1.429;
-  font-weight: _getFontWeightValue($fw);
-}
-
-@mixin fontC2LH2($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  font-size: 14px;
-  line-height: 1.429;
-  font-weight: _getFontWeightValue($fw);
-}
-
-@mixin fontC3LH1($fw) {
-  font-family: 'Spoqa Hans Sans Neo', 'Spoqa Han Sans';
-  font-size: 12px;
-  line-height: 1.334;
-  font-weight: _getFontWeightValue($fw);
 }

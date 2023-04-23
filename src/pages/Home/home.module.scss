@@ -1,0 +1,48 @@
+@use 'src/styles/constants' as c;
+@use 'src/styles/mixins' as m;
+
+@keyframes pop {
+  0%,
+  40%,
+  100% {
+    transform: translateY(0);
+  }
+
+  20% {
+    transform: translateY(-8px);
+  }
+}
+
+.wrapper {
+  @include m.flex(center, center, column);
+  row-gap: 32px;
+  height: 100vh;
+
+  .title {
+    color: c.$C_PRIMARY;
+
+    > p {
+      @include m.fontH2;
+      counter-increment: count;
+      @for $i from 1 through 3 {
+        &:nth-of-type(#{$i}) {
+          .highlight {
+            animation: pop 1s infinite;
+            animation-delay: calc(0.1s * #{$i});
+          }
+        }
+      }
+    }
+
+    > p + p {
+      margin-top: 8px;
+    }
+
+    .highlight {
+      display: inline-block;
+      $count: counter(count);
+      @include m.fontH1;
+      margin-right: 4px;
+    }
+  }
+}

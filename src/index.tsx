@@ -1,9 +1,10 @@
 import React from 'react';
 
 import ReactDOM from 'react-dom/client';
+import { RouterProvider } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
-
+import router from './router';
 import './styles/global.scss';
 
 const root = ReactDOM.createRoot(
@@ -11,7 +12,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <div />
+    <RouterProvider router={router} />
   </React.StrictMode>,
 );
 
