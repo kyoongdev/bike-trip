@@ -25,7 +25,9 @@ const Home: React.FC = () => {
           <span className={styles.highlight}>디</span>펜스
         </p>
       </div>
-      <Button onClick={onClick}>시작하기</Button>
+      <Button className={styles.start} onClick={onClick}>
+        시작하기
+      </Button>
     </section>
   );
 };

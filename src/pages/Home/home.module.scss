@@ -22,7 +22,7 @@
     color: c.$C_PRIMARY;
 
     > p {
-      @include m.fontH2;
+      font-size: 40px;
       counter-increment: count;
       @for $i from 1 through 3 {
         &:nth-of-type(#{$i}) {
@@ -40,9 +40,15 @@
 
     .highlight {
       display: inline-block;
-      $count: counter(count);
-      @include m.fontH1;
       margin-right: 4px;
+      font-size: 48px;
+      $count: counter(count);
     }
+  }
+
+  .start {
+    @include m.fontH1;
+    height: 60px;
+    padding: 0 30px;
   }
 }
