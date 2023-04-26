@@ -32,7 +32,7 @@ const Home: React.FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
   const isSuccess = Boolean(data) && !isLoading;
-
+  console.log({ isSuccess });
   useQuery(
     ['getExcel'],
     () =>
@@ -85,15 +85,18 @@ const Home: React.FC = () => {
   );
 
   const onClickStick = () => {
-    setIsActive(true);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 2_000);
-  };
-
-  const onClickAgain = () => {
-    setIsLoading(true);
-    setIsActive(false);
+    if (isActive && isLoading) {
+      return;
+    }
+    if (isActive) {
+      setIsLoading(true);
+      setIsActive(false);
+    } else {
+      setIsActive(true);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2_000);
+    }
   };
 
   return (
@@ -160,11 +163,6 @@ const Home: React.FC = () => {
         </div>
         <div className={styles.bottom} />
       </div>
-      {isSuccess && (
-        <Button className={styles.reStart} onClick={onClickAgain}>
-          다시 돌리기
-        </Button>
-      )}
     </section>
   );
 };

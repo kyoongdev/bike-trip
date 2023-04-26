@@ -169,6 +169,7 @@
         }
 
         &.isActive {
+          user-select: none;
           transform: rotate(135deg) translateY(10px);
         }
       }
@@ -181,14 +182,5 @@
       border-top-left-radius: 6px;
       border-top-right-radius: 6px;
     }
-  }
-
-  .reStart {
-    @include m.fontH3;
-    position: absolute;
-    bottom: 80px;
-    width: 240px;
-    height: 60px;
-    padding: 0 30px;
   }
 }
