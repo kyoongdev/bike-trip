@@ -22,7 +22,7 @@ interface Targets {
 
 const Home: React.FC = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
-
+  const [rawData, setRawData] = useState<BikeData[]>([]);
   const [data, setData] = useState<[string, string, string]>(['', '', '']);
   const [targets, setTargets] = useState<Targets>({
     first: [],
@@ -69,20 +69,24 @@ const Home: React.FC = () => {
               };
             }),
           );
-
-        const { location: rawLocation } =
-          jsonData[randomNumber(0, jsonData.length - 1)];
-        const location = filterLocation(rawLocation);
-        setData([
-          location[0] || '',
-          location[1] || '',
-          location.length > 3 ? location.slice(2).join(',') : location[2] ?? '',
-        ]);
+        setRawData(jsonData);
+        onReset(jsonData);
       },
       refetchOnMount: false,
       retry: false,
     },
   );
+
+  const onReset = (jsonData: BikeData[]) => {
+    const { location: rawLocation } =
+      jsonData[randomNumber(0, jsonData.length - 1)];
+    const location = filterLocation(rawLocation);
+    setData([
+      location[0] || '',
+      location[1] || '',
+      location.length > 3 ? location.slice(2).join(',') : location[2] ?? '',
+    ]);
+  };
 
   const onClickStick = () => {
     if (isActive && isLoading) {
@@ -91,6 +95,7 @@ const Home: React.FC = () => {
     if (isActive) {
       setIsLoading(true);
       setIsActive(false);
+      onReset(rawData);
     } else {
       setIsActive(true);
       setTimeout(() => {
@@ -129,7 +134,7 @@ const Home: React.FC = () => {
             <div className={styles.role}>
               <div className={styles.container}>
                 {isSuccess ? (
-                  <p>{data[0]}</p>
+                  <p className={styles.isSuccess}>{data[0]}</p>
                 ) : (
                   targets.first.map((text, index) => <p key={index}>{text}</p>)
                 )}
@@ -138,7 +143,7 @@ const Home: React.FC = () => {
             <div className={styles.role}>
               <div className={styles.container}>
                 {isSuccess ? (
-                  <p>{data[1]}</p>
+                  <p className={styles.isSuccess}>{data[1]}</p>
                 ) : (
                   targets.second.map((text, index) => <p key={index}>{text}</p>)
                 )}
@@ -147,7 +152,7 @@ const Home: React.FC = () => {
             <div className={styles.role}>
               <div className={styles.container}>
                 {isSuccess ? (
-                  <p>{data[2]}</p>
+                  <p className={styles.isSuccess}>{data[2]}</p>
                 ) : (
                   targets.third.map((text, index) => <p key={index}>{text}</p>)
                 )}
