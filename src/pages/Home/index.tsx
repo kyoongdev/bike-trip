@@ -25,9 +25,9 @@ const Home: React.FC = () => {
   const [rawData, setRawData] = useState<BikeData[]>([]);
   const [data, setData] = useState<[string, string, string]>(['', '', '']);
   const [targets, setTargets] = useState<Targets>({
-    first: [],
-    second: [],
-    third: [],
+    first: ['따'],
+    second: ['랜'],
+    third: ['디'],
   });
   const [isLoading, setIsLoading] = useState<boolean>(true);
 
