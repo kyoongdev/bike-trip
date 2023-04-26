@@ -44,7 +44,7 @@ const Result: React.FC = () => {
     onGetFile();
     setTimeout(() => {
       setIsLoading(true);
-    }, 1000);
+    }, 3000);
   }, []);
 
   if (!isSuccess) {
