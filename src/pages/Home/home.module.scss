@@ -183,8 +183,11 @@
     }
   }
 
-  .start {
-    @include m.fontH1;
+  .reStart {
+    @include m.fontH3;
+    position: absolute;
+    bottom: 80px;
+    width: 240px;
     height: 60px;
     padding: 0 30px;
   }

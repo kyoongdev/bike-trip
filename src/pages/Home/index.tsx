@@ -91,6 +91,11 @@ const Home: React.FC = () => {
     }, 2_000);
   };
 
+  const onClickAgain = () => {
+    setIsLoading(true);
+    setIsActive(false);
+  };
+
   return (
     <section className={styles.wrapper}>
       <div className={styles.title}>
@@ -155,6 +160,11 @@ const Home: React.FC = () => {
         </div>
         <div className={styles.bottom} />
       </div>
+      {isSuccess && (
+        <Button className={styles.reStart} onClick={onClickAgain}>
+          다시 돌리기
+        </Button>
+      )}
     </section>
   );
 };
